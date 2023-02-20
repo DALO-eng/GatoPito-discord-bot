@@ -3,11 +3,11 @@ const wait = require("node:timers/promises").setTimeout;
 
 module.exports = {
   data: new SlashCommandBuilder()
-    .setName("ping")
+    .setName("slowping")
     .setDescription("Gato pito replies with pong!"),
   async execute(interaction) {
-    await interaction.reply("Pong! :D");
-    await wait(2000);
-    await interaction.editReply("Pong again!");
+    await interaction.deferReply();
+    await wait(4000);
+    await interaction.editReply({ content: "Pong! :D", ephemeral: false });
   },
 };

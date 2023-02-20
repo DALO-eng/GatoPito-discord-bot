@@ -26,7 +26,7 @@ const eventFiles = fs
   .readdirSync(eventsPath)
   .filter((file) => file.endsWith(".js"));
 
-// Set all the commands files to the bot client
+// Set all the commands files to the bot client (Command handling)
 for (const file of commandFiles) {
   const filePath = path.join(commandsPath, file);
   const command = require(filePath);
@@ -40,6 +40,7 @@ for (const file of commandFiles) {
   }
 }
 
+//Set all the events files to the bot client (Event handling)
 for (const file of eventFiles) {
   const filePath = path.join(eventsPath, file);
   const event = require(filePath);
